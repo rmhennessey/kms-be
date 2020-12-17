@@ -34,19 +34,19 @@ app.use('/api/ads', adsRoutes)
 app.use('/api/youtube', youTubeRoutes)
 app.use('/api/twitter', twitterRoutes)
 
-const __dirname = path.resolve()
+// const __dirname = path.resolve()
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.join(__dirname, '/frontend/build')))
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static(path.join(__dirname, '/frontend/build')))
 
-	app.get('*', (req, res) =>
-		res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
-	)
-} else {
-	app.get('/', (req, res) => {
-		res.send('Welcome to the jungle...')
-	})
-}
+// 	app.get('*', (req, res) =>
+// 		res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+// 	)
+// } else {
+// 	app.get('/', (req, res) => {
+// 		res.send('Welcome to the jungle...')
+// 	})
+// }
 
 const PORT = process.env.PORT || 5000
 
