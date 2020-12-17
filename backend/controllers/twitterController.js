@@ -9,7 +9,12 @@ const getKirkTimeline = (req, res) => {
 		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 	})
 	// see timeline docs => https://developer.twitter.com/en/docs/twitter-api/v1/tweets/timelines/api-reference/get-statuses-user_timeline
-	const params = { screen_name: 'kirkmin', count: 30, trim_user: true }
+	const params = {
+		screen_name: 'kirkmin',
+		count: 30,
+		trim_user: true,
+		include_rts: true,
+	}
 	client.get(
 		'statuses/user_timeline',
 		params,
@@ -30,7 +35,12 @@ const getSteveTimeline = (req, res) => {
 		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
 		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 	})
-	const params = { screen_name: 'bigsteve207', count: 30, trim_user: true }
+	const params = {
+		screen_name: 'bigsteve207',
+		count: 30,
+		trim_user: true,
+		include_rts: true,
+	}
 	client.get(
 		'statuses/user_timeline',
 		params,
