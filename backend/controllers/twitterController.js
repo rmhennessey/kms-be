@@ -51,7 +51,12 @@ const getKmsTimeline = (req, res) => {
 		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
 		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 	})
-	const params = { screen_name: 'kirkminshow', count: 30, trim_user: true }
+	const params = {
+		screen_name: 'kirkminshow',
+		count: 30,
+		trim_user: true,
+		include_rts: true,
+	}
 	client.get(
 		'statuses/user_timeline',
 		params,
